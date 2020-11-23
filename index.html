@@ -1,0 +1,298 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mentorship</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="modal fade" id="addMentorModal" tabindex="-1" role="dialog" aria-labelledby="addMentorModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addMentorModalLongTitle">Add Mentors</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseAddMentor()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                          <label for="mentorNameForm" class="col-sm-2 col-form-label">Mentor</label>
+                          <div class="col-sm-10">
+                            <input type="input" class="form-control" id="mentorNameForm" placeholder="Mentor Name" value="">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="topicForm" class="col-sm-2 col-form-label">Topic</label>
+                          <div class="col-sm-10">
+                            <select class="form-control" id="topicForm">
+                                <option value="">--Select--</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="HTML, CSS">HTML, CSS</option>
+                                <option value="Node JS">Node JS</option>
+                                <option value="React JS">React JS</option>
+                            </select>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onCloseAddMentor()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="createMentor()">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addStudentModalLongTitle">Add Mentors</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseAddStudent()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                          <label for="studentNameForm" class="col-sm-2 col-form-label">Mentor</label>
+                          <div class="col-sm-10">
+                            <input type="input" class="form-control" id="studentNameForm" placeholder="Student Name" value="">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="batchForm" class="col-sm-2 col-form-label">Batch</label>
+                          <div class="col-sm-10">
+                            <select class="form-control" id="batchForm">
+                                <option value="">--Select--</option>
+                                <option value="Batch 1">Batch 1</option>
+                                <option value="Batch 2">Batch 2</option>
+                                <option value="Batch 3">Batch 3</option>
+                                <option value="Batch 4">Batch 4</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="courseForm" class="col-sm-2 col-form-label">Course</label>
+                            <div class="col-sm-10">
+                              <select class="form-control" id="courseForm">
+                                  <option value="">--Select--</option>
+                                  <option value="Full Stack">Full Stack</option>
+                                  <option value="Web Development">Web Development</option>
+                                  <option value="DevOps">DevOps</option>
+                              </select>
+                            </div>
+                          </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onCloseAddStudent()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="createStudent()">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>       
+          <div class="modal fade" id="assignMentorModal" tabindex="-1" role="dialog" aria-labelledby="assignMentorModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="assignMentorModalLongTitle">Assign Mentor</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseAsignMentor()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                          <label for="assignMentorId" class="col-sm-2 col-form-label">Mentor</label>
+                          <div class="col-sm-10">
+                            <select class="form-control" id="assignMentorId">
+                                <option value="">--Select--</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="assignStudentId" class="col-sm-2 col-form-label">Student</label>
+                            <div class="col-sm-10">
+                              <select class="form-control" id="assignStudentId">
+                                  <option value="">--Select--</option>
+                              </select>
+                            </div>
+                          </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onCloseAsignMentor()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="assignMentor()">Assign</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal fade" id="changeMentorModal" tabindex="-1" role="dialog" aria-labelledby="changeMentorModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="changeMentorModalLongTitle">Change Mentor</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseChangeMentor()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                        <div class="col-sm-4">
+                          <label for="changeStudentId" class="col-form-label">Student</label>
+                        </div>
+                          <div class="col-sm-8">
+                            <select class="form-control" id="changeStudentId" onchange="onStudentSelect(this.value)">
+                                <option value="">--Select--</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="d-none form-group row" id="currMentorId">
+                            <div class="col-sm-4">
+                            <label for="currentMentor" class="col-form-label">Current Mentor</label>
+                        </div>
+                            <div class="col-sm-8">
+                              <input type="input" class="form-control" id="currentMentor" placeholder="" value="" disabled>
+                            </div>
+                          </div>
+                        <div class="d-none form-group row" id="mentorChangeId">
+                            <div class="col-sm-4">
+                            <label for="changeMentorId" class="col-form-label">Mentor</label>
+                            </div>
+                            <div class="col-sm-8">
+                              <select class="form-control" id="changeMentorId">
+                                  <option  value="">--Select--</option>
+                              </select>
+                            </div>
+                          </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onCloseChangeMentor()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="changeMentor()">Change</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="menteeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="menteeDetailsModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="menteeDetailsModalLongTitle">Mentee Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="onCloseMenteeDetails()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                          <label for="assignMentorId" class="col-sm-2 col-form-label">Mentor</label>
+                          <div class="col-sm-10">
+                            <select class="form-control" id="selectMentorId" onchange="onMentorSelect(this.value)" >
+                                <option value="">--Select--</option>
+                            </select>
+                          </div>
+                        </div>
+                        <table class="table" id="menteeDetailsTable"></table>
+                        
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onCloseMenteeDetails()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+
+        document.body.setAttribute("class", "background")
+        let mainDiv = document.createElement("div")
+        mainDiv.setAttribute("class", "container")
+        document.body.appendChild(mainDiv)
+
+        let rowDiv = document.createElement("div")
+        rowDiv.setAttribute("class", "row")
+        mainDiv.appendChild(rowDiv)
+
+        let colDiv1 = document.createElement("div")
+        colDiv1.setAttribute("class", "col-sm-12 col-md-3")
+        rowDiv.appendChild(colDiv1)
+
+        let colDiv2 = document.createElement("div")
+        colDiv2.setAttribute("class", "col-sm-12 col-md-6")
+        colDiv2.setAttribute("id", "colDivId")
+        rowDiv.appendChild(colDiv2)
+        
+        let heading = document.createElement("h1")
+        heading.setAttribute("class", "text-center heading")
+        heading.innerText = "Mentorship"
+        colDiv2.appendChild(heading)
+
+        let addMentorButton = document.createElement("button")
+        addMentorButton.setAttribute("class", "btn btn-primary btn-lg btn-block bg-color")
+        addMentorButton.setAttribute("id", "addMentor")
+        addMentorButton.innerText = "Add Mentor"
+        addMentorButton.setAttribute("data-toggle", "modal")
+        addMentorButton.setAttribute("data-target", "#addMentorModal")
+        colDiv2.appendChild(addMentorButton)
+        
+
+        let addStudentButton = document.createElement("button")
+        addStudentButton.setAttribute("class", "btn btn-primary btn-lg btn-block bg-color")
+        addStudentButton.setAttribute("id", "addStudent")
+        addStudentButton.innerText = "Add Student"
+        addStudentButton.setAttribute("data-toggle", "modal")
+        addStudentButton.setAttribute("data-target", "#addStudentModal")
+        colDiv2.appendChild(addStudentButton)
+
+        let assignMentorButton = document.createElement("button")
+        assignMentorButton.setAttribute("class", "btn btn-primary btn-lg btn-block bg-color")
+        assignMentorButton.setAttribute("id", "assignMentor")
+        assignMentorButton.innerText = "Assign Mentor"
+        assignMentorButton.setAttribute("data-toggle", "modal")
+        assignMentorButton.setAttribute("data-target", "#assignMentorModal")
+        assignMentorButton.setAttribute("onClick", "onAssign()")
+        colDiv2.appendChild(assignMentorButton)
+
+        let changeMentorButton = document.createElement("button")
+        changeMentorButton.setAttribute("class", "btn btn-primary btn-lg btn-block bg-color")
+        changeMentorButton.setAttribute("id", "changeMentor")
+        changeMentorButton.innerText = "Change Mentor"
+        changeMentorButton.setAttribute("data-toggle", "modal")
+        changeMentorButton.setAttribute("data-target", "#changeMentorModal")
+        changeMentorButton.setAttribute("onClick", "onChange()")
+        colDiv2.appendChild(changeMentorButton)
+
+        let menteeDetailsButton = document.createElement("button")
+        menteeDetailsButton.setAttribute("class", "btn btn-primary btn-lg btn-block bg-color")
+        menteeDetailsButton.setAttribute("id", "menteeDetails")
+        menteeDetailsButton.innerText = "Mentee Details"
+        menteeDetailsButton.setAttribute("data-toggle", "modal")
+        menteeDetailsButton.setAttribute("data-target", "#menteeDetailsModal")
+        menteeDetailsButton.setAttribute("onClick", "onMenteedetails()")
+        colDiv2.appendChild(menteeDetailsButton)
+
+        function onHighScores(){
+            window.open("highscores.html", "_self")
+        }
+
+        function onPlay(){
+            window.open("game.html", "_self")
+        }       
+        
+
+    </script>
+    
+</html>
